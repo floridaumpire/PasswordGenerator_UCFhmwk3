@@ -22,12 +22,13 @@ function generatePassword(){
   console.log(passwordLength);
 
   /*var length = parseInt()*/
-
+//make sure password length is valid. If not loop out and return. 
   if (passwordLength < 8 || passwordLength > 128) {
     alert("Password needs to be between the number 8 and 128 and it is " + passwordLength + ".");
   }
   else {
     //Ask for UPPERCASE letter
+    //if password lenght is valid then determine what password will consist of
     var passwordLowercase = confirm("WOudl you like to include lowercase letter in your password?");
     var passwordUppercase = confirm("WOudl you like to include UPPERCASE letter in your password?");
     var passwordSpecChar = confirm("WOudl you like to include SpEcIaL letter in your password?");
@@ -52,6 +53,9 @@ function generatePassword(){
       var passNumber = confirm("Include Lower Case?");
     }
 */
+
+
+//add items to password array for random choosing of characters
     var finalPasswordArray = [];
     if (passwordLowercase) {
       finalPasswordArray = finalPasswordArray.concat(lowercase)
@@ -71,12 +75,13 @@ function generatePassword(){
     
     
     //pick target number (pwLength) of characeter from built array (finalPasswordArray)
+    //loop through items to get number of characters needed for password
     for (let index=0; index < passwordLength; index++) {
     // get random values from array
       console.log(index);
-      word += finalPasswordArray[Math.floor(Math.random() * finalPasswordArray.length)];
+      word += finalPasswordArray[Math.floor(Math.random() * finalPasswordArray.length)]; 
     }
-    return word;
+    return word; 
   } 
 }
 
@@ -86,6 +91,7 @@ generatePassword();
 
 
 // Write password to the #password input
+//Send password back to screen
 function writePassword() {
   var passwordText = document.querySelector("#password");
   
